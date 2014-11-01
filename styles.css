@@ -1,31 +1,33 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     margin: 0px;
+    background: grey;
 }
 
 #header {
     border:0px solid #000;
     background: #E6E65C;
-    width:100%;
+    width:94%;
     height:120px;
-    margin:0 0 0px 0;
+    margin: 0 0 0px 0;
+    padding: 0% 3% 0% 3%;
 
     line-height: 120px;
-    font-size: xx-large;
+    font-size: 80px;
 }
 
 .container {
     position:relative;
     padding:0 0 0 25%;
-    height: 650px;
+    height: 700px;
 }
 
 #sidebar {
     position:absolute;
-    top:0; bottom:0; left:0;
-    width:25%;
+    top:0; bottom:0; left:2%;
+    width:23%;
     height: 100%;
-    background: #30301F;
+    background: #F0F09D;
     color: white;
 }
 
@@ -42,25 +44,77 @@ body {
     font-size: xx-large;
 }
 
+#currentsidebar {
+    background: #F0F09D;
+    color: black;
+    margin-right: -1px;
+}
 
 #content {
     border:0px solid #000;
     background: #F0F09D;
-    width:94%;
+    width:91.314%;
     height:100%;
     margin:0px 0 0px 0;
-    padding: 3%;
+    padding: 0 3% 0 3%;
     font-size: 60px;
     display: inline-block;
 }
 
-select{
+#contentheader {
+    text-align: center;
+    margin: 4%;
+    font-weight: bolder;
+}
+
+.contentselection {
+    position: relative;
+    padding: 3% 0 3% 50%;
+    margin-bottom: 0%;
+}
+
+.contentselectiontext {
+    position: absolute;
+    left:20%;
+}
+
+select {
     font-size: 60px;
+    margin-left: 10%;
+    width: 60%;
+}
+
+#messagebox {
+    margin-top: 30px;
+    height: 30%;
+}
+
+textarea {
+    position: relative;
+    left: 20%;
+    width: 64.5%;
+    height: 100%;
+    font-size: 30px;
+}
+
+#send {
+    float: right;
+    width: 14%;
+    height: 100%;
+    background:red;
+    border: 0px;
+    font-size: 40px;
 }
 
 #footer {
     border:0px solid #000;
-    width:100%;
+    position: relative;
+    left:2%;
+    width:90%;
     height:200px;
     margin:0px 0 0 0;
+
+    background-image: linear-gradient(#F0F09D, grey);
+    background:grey;
+    padding: 0 3% 0 3%;
 }

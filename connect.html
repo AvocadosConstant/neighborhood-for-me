@@ -2,14 +2,15 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles.css">
-        <title>Title</title>
+        <title>Neighborhood For Me</title>
     </head>
 
     <body>
 
         <div id="header">
-            Header
+            Neighborhood For Me
         </div>
 
         <div class="container">
@@ -17,11 +18,11 @@
             <div id="sidebar">
 
                 <div class="sidebarelement">
-                    Connect
+                    Stuff
                 </div>
 
                 <div class="sidebarelement">
-                    Stuff
+                    <div id="currentsidebar">Connect</div>
                 </div>
 
                 <div class="sidebarelement">
@@ -52,26 +53,31 @@
 
 
             <div id="content">
-                <div>Send a
-                    <select>
-                        <option value="text">Text</option>
-                        <option value="email">Email</option>
-                    </select>
-                </div></br>
+                <div id="contentheader">
+                    Send Neighbormail
+                </div>
 
-                <div>For a(n)
+                <div class="contentselection">
+                    <div class="contentselectiontext">For a(n) </div>
                     <select>
-                        <option value="text">Text</option>
-                        <option value="email">Email</option>
-                    </select>
-                </div></br>
-
-                <div>To        
-                    <select>
-                        <option value="text">Text</option>
-                        <option value="email">Email</option>
+                        <option value="text">Event</option>
+                        <option value="email">Event2</option>
                     </select>
                 </div>
+
+                <div class="contentselection">
+                    <div class="contentselectiontext">To </div>
+                    <select>
+                        <option value="text">Group1</option>
+                        <option value="email">Group2</option>
+                    </select>
+                </div>
+
+                <div id="messagebox">
+                    <textarea placeholder="Your message here."></textarea>
+                    <button id="send">Send</button>
+                </div>
+
             </div>
 
         </div>
