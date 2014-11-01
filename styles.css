@@ -1,5 +1,5 @@
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Lato';
     margin: 0px;
     background: grey;
 }
@@ -80,6 +80,7 @@ body {
 
 select {
     font-size: 60px;
+    font-family: 'Lato';
     margin-left: 10%;
     width: 60%;
 }
