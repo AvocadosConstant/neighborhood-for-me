@@ -50,5 +50,7 @@ var server = app.listen(3000, function(){
     Contacts.find(function(err,dbContacts){
         if(err) return console.log(err);
         console.log(dbContacts);
+        console.log(dbContacts[0].email);
     }); 
+
 });
