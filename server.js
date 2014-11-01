@@ -31,6 +31,7 @@ app.get('/', function(req, res){
     res.send('Hello World!');
 });
 
+/*
 app.post('/',function(req, res){
     var emailNumber = req.body.email;
     res.writeHead(200, {"Content-Type": "text/plain"});
@@ -42,9 +43,10 @@ app.post('/',function(req, res){
     console.log("This is the emailNumber stored: " + contact.email);
     res.end();
 });
-
+*/
 app.post('/email',function(req, res){
     var emailNumber = req.body.from;
+    console.log("This is the BODY!!!: \n" + req.body);
     res.writeHead(200, {"Content-Type": "text/plain"});
     console.log("This is the phone number " + emailNumber);
     var contact = new Contacts({email:emailNumber});
