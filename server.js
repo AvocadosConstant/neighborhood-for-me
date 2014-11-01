@@ -46,7 +46,8 @@ app.post('/',function(req, res){
 */
 app.post('/email',function(req, res){
     var emailNumber = req.body.from;
-    var jsonstring = JSON.stringify(req.body);
+    // var jsonstring = JSON.stringify(req.body);
+    var bodyString = req.body.toString();
     console.log("This is the BODY!!!: \n" + jsonstring);
     res.writeHead(200, {"Content-Type": "text/plain"});
     console.log("This is the phone number " + emailNumber);
