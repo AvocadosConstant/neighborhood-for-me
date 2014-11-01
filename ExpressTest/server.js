@@ -36,6 +36,9 @@ app.post('/',function(req, res){
     res.writeHead(200, {"Content-Type": "text/plain"});
     console.log("This is the phone number " + emailNumber);
     var contact = new Contacts({email:emailNumber});
+    contact.save(function(err, contact){
+        if(err) return console.log(err);
+    });
     console.log("This is the emailNumber stored: " + contact.email);
     res.end();
 });
@@ -44,6 +47,8 @@ var server = app.listen(3000, function(){
     var host = server.address().address;
     var port = server.address().port;
     console.log("Example app listening at http:blahblah", host,port);
-    db.Contacts.find();
-    consoloe.log(db.Contacts.find());
+    Contacts.find(function(err,dbContacts){
+        if(err) return console.log(err);
+        console.log(dbContacts);
+    }); 
 });
