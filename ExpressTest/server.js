@@ -33,7 +33,7 @@ app.get('/', function(req, res){
 
 app.post('/',function(req, res){
     var emailNumber = req.body.email;
-    response.writeHead(200, {"Content-Type": "text/plain"});
+    res.writeHead(200, {"Content-Type": "text/plain"});
     console.log("This is the phone number " + emailNumber);
     var contact = new Contacts({email:emailNumber});
     console.log("This is the emailNumber stored: " + contact.email);
