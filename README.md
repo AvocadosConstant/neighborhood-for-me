@@ -3,7 +3,7 @@
 
 Team NullPointerException:
 --------------------------  
-    *Charlie DiGiovanna '17
+    *Charlie   DiGiovanna '17
     *Tim Hung '18
     *William Jagels '18
     *Rushil Kumar '18
