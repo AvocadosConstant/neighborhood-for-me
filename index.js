@@ -153,7 +153,7 @@ $(document).ready(function() {
 	    };
 	    location.reload();
 	    $.ajax({
-		url: 'http://104.236.58.7:80/login',
+		url: 'http://104.236.58.7:80/register',
 		type: 'POST',
 		crossDomain: true,
 		dataType: 'json',
@@ -174,20 +174,23 @@ $(document).ready(function() {
 		"username":userName,
 		"password":passWord
 	    };
-	    location.reload();
-	    
+	    //location.reload();
 	    $.ajax({
-		url: 'http://localhost:28017/test/organizations',
+		url: 'http://104.236.58.7:80/login',
 		type: 'POST',
-		dataType: 'jsonp',
-		jsonp: 'jsonp',
-		success: function(responseData){
-		    console.log("We are accessing the mongodb!! : " + responseData[0].email);
+		crossDomain: true,
+		dataType: 'json',
+		data: jsonData,
+		success: function(responseData, textStatus, jqXHR) {
+		    console.log("This is the response data: " + responseData);
+		    console.log("This is the response data: " + responseData.containsData);
 		},
-		error: function(XMLHttpRequest, textStatus, errorThrown){
-		    console.log("Error here " + errorThrown);
+		error: function (responseData, textStatus, errorThrown) {
+		    console.log("This is the error response data: " + responseData);
+		    console.log("This is the error response data: " + responseData.containsData);
+		    console.log(textStatus);
+		    console.log(errorThrown);
 		}
 	    });
-	    
 	});
 });

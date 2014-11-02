@@ -39,7 +39,7 @@ app.get(/^(.+)$/, function(req, res){
     res.sendfile( __dirname + req.params[0]); 
 });
 
-app.post("/login", function(req, res){
+app.post("/register", function(req, res){
     var orgUserName = req.body.username;
     var passWord = req.body.password;
     console.log("This is the password: " + passWord);
@@ -61,6 +61,40 @@ app.post("/login", function(req, res){
     });
     res.end();
 });
+
+app.post("/login", function(req, res){
+    var orgUserName = req.body.username;
+    var passWord = req.body.password;
+    console.log("This is the password: " + passWord);
+    console.log("This is the userName: " + orgUserName);
+    res.writeHead(200, {'content-type': 'text/plain'});
+    var index = -1;
+    var contains = "no";
+    Organizations.find(function(err,dbOrganizations){
+	if(err) return console.log(err);
+	for(var i = 0; i < dbOrganizations.length; i ++){
+	    console.log("This is the email: " + dbOrganizations[i].email);
+	    console.log("This is the pass: " + dbOrganizations[i].password);
+	    if(orgUserName === dbOrganizations[i].email){
+		index = i;
+		console.log("This is the email inside: " + dbOrganizations[i].email);
+		console.log("This is the pass inside: " + dbOrganizations[i].password);
+		console.log("this is the index : " + i);
+	    }
+	}
+	if(index >= 0){
+	    console.log("This is the index: " + index);
+	    if(dbOrganizations[index].password === passWord){
+		contains = "yes";
+	    }
+	}
+    });
+    //res.setHeader('Content-Type', 'application/json');
+    res.type=('text/plain');
+    res.send(JSON.stringify({'containsData':contains}));
+    //res.write(JSON.stringify({'containsData':contains}));
+    res.end(); 
+});1
 
 var port = process.env.PORT || 80;
 app.listen(port, function() {
