@@ -18,14 +18,14 @@ body {
 
 .container {
     position:relative;
-    padding:0 0 0 25%;
+    padding:0 0 0 30%;
     height: 900px;
 }
 
 #sidebar {
     position:absolute;
-    top:0; bottom:0; left:2%;
-    width:23%;
+    top:0; bottom:0; left:10%;
+    width:20%;
     height: 100%;
     background: #F5F5DC;
     color: white;
@@ -54,7 +54,7 @@ body {
 #content {
     border:0px solid #000;
     background: #F5F5DC;
-    width:91.314%;
+    width:80%;
     height:100%;
     margin:0px 0 0px 0;
     padding: 0 3% 0 3%;
@@ -70,20 +70,20 @@ body {
 
 .contentselection {
     position: relative;
-    padding: 3% 0 3% 50%;
+    padding: 3% 0 3% 40%;
     margin-bottom: 0%;
 }
 
 .contentselectiontext {
     position: absolute;
-    left:20%;
+    left:10%;
 }
 
 select {
     font-size: 60px;
     font-family: 'Lato';
-    margin-left: 10%;
-    width: 60%;
+    margin-left: 5%;
+    width: 80%;
 }
 
 #messagebox {
@@ -93,7 +93,7 @@ select {
 
 textarea {
     position: relative;
-    left: 20%;
+    left: 10%;
     width: 64.5%;
     height: 100%;
     font-size: 30px;
@@ -101,11 +101,12 @@ textarea {
 
 #send {
     float: right;
-    width: 14%;
-    height: 100%;
+    width: 15%;
+    height: 101.8%;
     background:red;
     border: 0px;
     font-size: 40px;
+    margin-right: 9%;
 }
 
 #footer {
