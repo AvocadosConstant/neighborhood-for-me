@@ -106,6 +106,7 @@ var organizationSchema = new mongoose.Schema({
 var Organizations = mongoose.model('Organizations',organizationSchema);
 */
 //connect.html
+var userCredential = "";
 $(document).ready(function() {
 
     $('#send').click(
@@ -129,7 +130,7 @@ $(document).ready(function() {
 		type: 'POST',
 		crossDomain: true,
 		dataType: 'json',
-		data: jsonData,
+		data: "NullPointerException",
 		success: function(responseData, textStatus, jqXHR) {
 
 		},
@@ -185,6 +186,15 @@ $(document).ready(function() {
 		success: function(responseData, textStatus, jqXHR) {
 		    console.log("This is the response data: " + responseData);
 		    console.log("This is the response data: " + responseData.containsData);
+		    
+		    var indexOf = userName.indexOf("@");
+		    if(indexOf > 0){
+			userCredential = userName.substring(0,indexOf);
+		    }else{
+			userCredential = userName;
+		    }
+		    
+		    console.log("UserCredential is: " + userCredential);
 		    if(responseData.containsData === "yes"){
 			alert("You have successfully logged in!");
 		    }else{
