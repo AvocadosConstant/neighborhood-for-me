@@ -78,19 +78,52 @@ $(document).ready(function() {
     );
 });
 
+$(document).ready(function() {
+    $('#send').hover(
+        function() { $('#send').css('background-color', 'grey'); },
+        function() { $('#send').css('background-color', 'red'); }
+    );
+});
 
+/*
+// getting-started.js
+require('mongoose');
+
+mongoose.connect('mongodb://localhost/test');
+
+//test connection
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+    // yay!
+});
+
+var organizationSchema = new mongoose.Schema({
+    email: String,
+    password: String
+});
+
+var Organizations = mongoose.model('Organizations',organizationSchema);
+*/
 //connect.html
 $(document).ready(function() {
+
     $('#send').click(
         function() { 
 	    console.log("The button has been clicked");
 	    var messageToSend = $('#msgtext').val();
+	    console.log("The box should be empty now");
+	    $('#msgtext').value = "";
 	    console.log(messageToSend);
 	    var jsonData = {
 		"message":messageToSend,
 		"subject":"NullPointerException"
 	    };
 	    console.log(JSON.stringify(jsonData));
+	    
+	    location.reload();
+	    //window.location = window.location; 
+	    
 	    $.ajax({
 		url: 'http://104.236.58.7:3000/spam',
 		type: 'POST',
@@ -104,6 +137,57 @@ $(document).ready(function() {
 
 		}
 	    });
+	    
 	}
     );
+
+    $('#signupbutton').click(
+	function(){
+	    var userName = $('#signupemail').val();
+	    var passWord = $('#signuppwd').val();
+	    console.log("This is the username: " + userName);
+	    console.log("This is the password: " + passWord);
+	    var jsonData = {
+		"username":userName,
+		"password":passWord
+	    };
+	    location.reload();
+	    $.ajax({
+		url: 'http://104.236.58.7:80/login',
+		type: 'POST',
+		crossDomain: true,
+		dataType: 'json',
+		data: jsonData,
+		success: function(responseData, textStatus, jqXHR) {
+
+		},
+		error: function (responseData, textStatus, errorThrown) {
+
+		}
+	    });
+	});
+    $('#loginbutton').click(
+	function(){
+	    var userName = $('#loginemail').val();
+	    var passWord = $('#loginpwd').val();
+	    var jsonData = {
+		"username":userName,
+		"password":passWord
+	    };
+	    location.reload();
+	    
+	    $.ajax({
+		url: 'http://localhost:28017/test/organizations',
+		type: 'POST',
+		dataType: 'jsonp',
+		jsonp: 'jsonp',
+		success: function(responseData){
+		    console.log("We are accessing the mongodb!! : " + responseData[0].email);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+		    console.log("Error here " + errorThrown);
+		}
+	    });
+	    
+	});
 });
