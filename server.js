@@ -84,9 +84,21 @@ app.post('/spam',function(req, res){
 		});
 		numMessage ++;
 	    }
-	}	
+	}
     });
+    console.log("hi!");
+    var nmailSchema = new mongoose.Schema({
+	email: String,
+	message: String
+    });
+    console.log("hello!");
+    var nmails = mongoose.model('Nmails',nmailSchema);
     res.end();
+    var nmail = new nmails({email:companyName, message:textBody});
+    nmail.save(function(err, contact) {
+	if(err) return console.log(err);
+    });
+    console.log(nmail.email);
 });
 
 app.post('/email',function(req, res){

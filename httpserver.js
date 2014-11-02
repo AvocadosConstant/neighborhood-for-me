@@ -1,6 +1,13 @@
-var express = require("express");
+var express = require('express');
+var expressSession = require('express-session');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var LocalStrategy = require('passport-local');
+var bCrypt = require('bcrypt-nodejs');
 var app = express();
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // getting-started.js
 var mongoose = require('mongoose');
@@ -25,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended:false}));
 
 /* serves main page */
 app.get("/", function(req, res) {
-    res.sendfile('home.html')
+    res.sendfile('home.html');
 });
 
 app.post("/user/add", function(req, res) { 
@@ -42,6 +49,8 @@ app.get(/^(.+)$/, function(req, res){
 app.post("/register", function(req, res){
     var orgUserName = req.body.username;
     var passWord = req.body.password;
+    console.log("Encrypting");
+    passWord = bCrypt.hashSync(passWord,bCrypt.genSaltSync(10),null);
     console.log("This is the password: " + passWord);
     console.log("This is the userName: " + orgUserName);
     res.writeHead(200, {'content-type': 'text/plain'});
@@ -62,6 +71,7 @@ app.post("/register", function(req, res){
     res.end();
 });
 
+/*
 app.post("/login", function(req, res){
     var orgUserName = req.body.username;
     var passWord = req.body.password;
@@ -94,7 +104,65 @@ app.post("/login", function(req, res){
     res.send(JSON.stringify({'containsData':contains}));
     //res.write(JSON.stringify({'containsData':contains}));
     res.end(); 
-});1
+});
+*/
+
+//passport stuff
+app.post('/login',
+	 passport.authenticate('local',{
+	     successRedirect: '/loginSuccess',
+	     failureRedirect: '/loginFailure'
+	 })
+	);
+app.get('/loginFailure', function(req, res, next) {
+    console.log("failed");
+    res.send('Failed to authenticate');
+});
+ 
+app.get('/loginSuccess', function(req, res, next) {
+    console.log("succeeded");
+    res.send('Successfully authenticated');
+});
+
+passport.serializeUser(function(user, done) {
+    done(null, user._id);
+});
+ 
+passport.deserializeUser(function(user, done) {
+    
+    done(null, user);
+});
+
+passport.use(new LocalStrategy(function(loginemail, loginpwd, done) {
+    process.nextTick(function() {
+	// Auth Check Logic
+	console.log("Checking for the password now");
+	Organizations.findOne({
+	    'email': loginemail, 
+	}, function(err, user) {
+	    console.log("Checking for the user now: " + user);
+	    if (err) {
+		console.log("Error 1");
+		return done(err);
+	    }
+ 
+	    if (!user) {
+		console.log("Error 2");
+		return done(null, false);
+	    }
+ 
+	    if (user.password != loginpwd) {
+		console.log("Error 3");
+		return done(null, false);
+	    }
+	    if(user.password == loginpwd){
+		console.log("Found the password!!!");
+	    }
+	    console.log("Error 4");
+	    return done(null, user);
+	});
+    });
+}));
 
 var port = process.env.PORT || 80;
 app.listen(port, function() {

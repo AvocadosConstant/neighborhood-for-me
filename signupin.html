@@ -61,9 +61,9 @@
                     <div id="signupform">
                         <div id="contentheader">Sign Up</div>
                         <form>
-                            Organization Name</br>
+                            <!--Organization Name</br>
                             <input type="text" id="signuporgname"></br></br>
-
+			    --!>
                             Email:</br>
                             <input type="text" id="signupemail"></br></br>
 
@@ -72,15 +72,17 @@
                         </form>
                         <button id="signupbutton">Sign Up</button>
                     </div>
-
+		    
                     <div id="loginform">
                         <div id="contentheader">Log In</div>
-                        <form>
+                        <form action="/login" method="post">
                             Email:</br>
                             <input type="text" id="loginemail"></br></br>
 
                             Password</br>
                             <input type="password" id="loginpwd"></br></br>
+			    
+			    <input type="submit" value="Submit" id="loginbutton"/>
                         </form>
                         <button id="loginbutton">Log In</button>
                     </div>
