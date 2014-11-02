@@ -1,12 +1,12 @@
 body {
     font-family: 'Lato';
     margin: 0px;
-    background: grey;
+    background: #474747;
 }
 
 #header {
     border:0px solid #000;
-    background: #E6E65C;
+    background: #F0F09D;
     width:94%;
     height:120px;
     margin: 0 0 0px 0;
@@ -19,7 +19,7 @@ body {
 .container {
     position:relative;
     padding:0 0 0 25%;
-    height: 700px;
+    height: 900px;
 }
 
 #sidebar {
@@ -27,7 +27,7 @@ body {
     top:0; bottom:0; left:2%;
     width:23%;
     height: 100%;
-    background: #F0F09D;
+    background: #F5F5DC;
     color: white;
 }
 
@@ -46,13 +46,14 @@ body {
 }
 
 #currentsidebar {
-    background: #F0F09D;
+    background: #F5F5DC;
     color: black;
+    margin-right: -2px;
 }
 
 #content {
     border:0px solid #000;
-    background: #F0F09D;
+    background: #F5F5DC;
     width:91.314%;
     height:100%;
     margin:0px 0 0px 0;
@@ -115,7 +116,27 @@ textarea {
     height:200px;
     margin:0px 0 0 0;
 
-    background-image: linear-gradient(#F0F09D, grey);
-    background:grey;
-    padding: 0 3% 0 3%;
+
+    background:#474747;
+    padding: 3% 3% 0 3%;
+
+    font-size: 20px;
+    color: lightgrey;
+}
+
+#teaminfo {
+    position: absolute;
+    right: 60%;
+    text-align: right;
+}
+
+#footertext {
+    position: relative;
+    left:45%;
+    width: 40%;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
 }
