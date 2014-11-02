@@ -51,11 +51,19 @@ app.post('/spam',function(req, res){
     res.writeHead(200, {'content-type': 'text/plain'});
     Contacts.find(function(err,dbContacts){
 	for(var i = 0; i < dbContacts.length; i ++){
+	    var textToSend = "";
+	    if(textBody.length <= 160){
+		textToSend = textBody;
+		textBody = textBody.substring(0,0);
+	    }else{
+		textToSend = textBody.substring(0,160);
+		textBody = textBody.substring(160,textBody.length);
+	    }
 	    sendgrid.send({
 		to:       dbContacts[i].email,
-		from:     'updates@neighborhoodfor.me',
+		from:     companyName + '@neighborhoodfor.me',
 		subject:  companyName,
-		text:     textBody
+		text:     textToSend
 	    }, function(err, json) {
 		if (err) {console.error(err); }
 		console.log(json);
