@@ -77,3 +77,11 @@ $(document).ready(function() {
         function() { document.location.href = "support.html";}
     );
 });
+
+
+//connect.html
+$(document).ready(function() {
+    $('#send').click(
+        function() { }
+    );
+});
