@@ -66,7 +66,7 @@ body {
     height:100%;
     margin:0px 0 0px 0;
     padding: 0 3% 0 3%;
-    font-size: 40px;
+    font-size: 20px;
     display: inline-block;
 }
 
@@ -85,6 +85,7 @@ body {
     position: relative;
     padding: 3% 0 3% 40%;
     margin-bottom: 0%;
+    font-size: 40px;
 }
 
 .contentselectiontext {
@@ -126,25 +127,25 @@ textarea {
 
 #footer {
     width:94%;
-    height:200px;
+    height:320px;
 
     background: #474747;
     padding: 3% 3% 0 3%;
 
-    font-size: 20px;
+    font-size: 18px;
     color: lightgrey;
 }
 
 #teaminfo {
     position: absolute;
-    right: 60%;
+    right: 70%;
     text-align: right;
 }
 
 #footertext {
     position: relative;
-    left:45%;
-    width: 40%;
+    left:32%;
+    width: 65%;
 }
 
 a {
@@ -180,6 +181,7 @@ a {
     position: relative;
     padding: 1% 1% 1% 55%;
     margin: 2% 5% 2% 5%;
+    text-align: center;
 }
 
 #signupform {
@@ -203,4 +205,17 @@ a {
 form {
     display: inline-block;
     margin: auto;
+}
+
+.aboutuslink {
+    color: grey;
+}
+
+.bios {
+    position: relative;
+}
+
+.responsibilities {
+    position: absolute;
+    left: 10%;
 }
