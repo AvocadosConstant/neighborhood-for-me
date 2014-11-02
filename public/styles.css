@@ -141,3 +141,31 @@ a {
     color: #FFFFFF;
     text-decoration: none;
 }
+
+.recentnmail {
+    font-size: 18px;
+    background: #474747;
+    color: white;
+    padding: 1% 1% 1% 21%;
+    margin: 2% 5% 2% 5%;
+    border-radius: 20px;
+    position: relative;
+
+}
+
+#orgpic {
+    position: absolute;
+    left: 1%;
+    border-radius: 14px;
+    width: 19%;
+    height: 82%;
+    margin: 1%;
+}
+
+#orgname {
+    font-weight: bolder;
+}
+
+#nmail {
+
+}
