@@ -168,6 +168,7 @@ $(document).ready(function() {
 	});
     $('#loginbutton').click(
 	function(){
+	    console.log("LoginButton clicked");
 	    var userName = $('#loginemail').val();
 	    var passWord = $('#loginpwd').val();
 	    var jsonData = {
@@ -184,8 +185,14 @@ $(document).ready(function() {
 		success: function(responseData, textStatus, jqXHR) {
 		    console.log("This is the response data: " + responseData);
 		    console.log("This is the response data: " + responseData.containsData);
+		    if(responseData.containsData === "yes"){
+			alert("You have successfully logged in!");
+		    }else{
+			alert("You have failed to log in");
+		    }
 		},
 		error: function (responseData, textStatus, errorThrown) {
+		    alert("You have failed to log in");
 		    console.log("This is the error response data: " + responseData);
 		    console.log("This is the error response data: " + responseData.containsData);
 		    console.log(textStatus);

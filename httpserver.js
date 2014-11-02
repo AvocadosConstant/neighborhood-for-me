@@ -71,7 +71,7 @@ app.post("/register", function(req, res){
     res.end();
 });
 
-/*
+
 app.post("/login", function(req, res){
     var orgUserName = req.body.username;
     var passWord = req.body.password;
@@ -94,19 +94,24 @@ app.post("/login", function(req, res){
 	}
 	if(index >= 0){
 	    console.log("This is the index: " + index);
-	    if(dbOrganizations[index].password === passWord){
+	    if(bCrypt.compareSync(passWord,dbOrganizations[index].password)){
 		contains = "yes";
+		console.log("the password is good!");
+		//alert("You have successfully logged in!");
 	    }
 	}
+	var loginJson = JSON.stringify({'containsData':contains});
+	console.log(loginJson);
+	res.write(loginJson);
+	res.end();
     });
     //res.setHeader('Content-Type', 'application/json');
-    res.type=('text/plain');
-    res.send(JSON.stringify({'containsData':contains}));
     //res.write(JSON.stringify({'containsData':contains}));
-    res.end(); 
+    //res.end(); 
 });
-*/
 
+
+/*
 //passport stuff
 app.post('/login',
 	 passport.authenticate('local',{
@@ -163,7 +168,7 @@ passport.use(new LocalStrategy(function(loginemail, loginpwd, done) {
 	});
     });
 }));
-
+*/
 var port = process.env.PORT || 80;
 app.listen(port, function() {
     console.log("Listening on " + port);
