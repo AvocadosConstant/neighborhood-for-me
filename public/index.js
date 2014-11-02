@@ -82,6 +82,17 @@ $(document).ready(function() {
 //connect.html
 $(document).ready(function() {
     $('#send').click(
-        function() { }
+        function() { 
+	    console.log("The button has been clicked");
+	    var messageToSend = $('#msgtext').value;
+	    $.post("http://localhost:3000/spam",
+		   {
+		       "message":messageToSend,
+		       "subject":"NullPointerException"
+		   },
+		   function(data,status){
+		       console.log("This is the status: " + status);
+		   });
+	}
     );
 });
