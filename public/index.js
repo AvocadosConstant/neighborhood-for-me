@@ -4,7 +4,7 @@ $(document).ready(function() {
         function() { $('#elem1').css('background-color', 'black'); }
     );
     $('#elem1').click(
-        function() { document.location.href = "file:///C:/Users/Tim/Documents/GitHubRepositories/CodingForACauseSocialHackathon/public/home.html";}
+        function() { document.location.href = "home.html";}
     );
 });
 
@@ -14,7 +14,7 @@ $(document).ready(function() {
         function() { $('#elem2').css('background-color', 'black'); }
     );
     $('#elem2').click(
-        function() { document.location.href = "file:///C:/Users/Tim/Documents/GitHubRepositories/CodingForACauseSocialHackathon/public/signupin.html";}
+        function() { document.location.href = "signupin.html";}
     );
 });
 
@@ -24,7 +24,7 @@ $(document).ready(function() {
         function() { $('#elem3').css('background-color', 'black'); }
     );
     $('#elem3').click(
-        function() { document.location.href = "file:///C:/Users/Tim/Documents/GitHubRepositories/CodingForACauseSocialHackathon/public/connect.html";}
+        function() { document.location.href = "connect.html";}
     );
 });
 
@@ -34,7 +34,7 @@ $(document).ready(function() {
         function() { $('#elem4').css('background-color', 'black'); }
     );
     $('#elem4').click(
-        function() { document.location.href = "file:///C:/Users/Tim/Documents/GitHubRepositories/CodingForACauseSocialHackathon/public/orgs.html";}
+        function() { document.location.href = "orgs.html";}
     );
 });
 
@@ -44,7 +44,7 @@ $(document).ready(function() {
         function() { $('#elem5').css('background-color', 'black'); }
     );
     $('#elem5').click(
-        function() { document.location.href = "file:///C:/Users/Tim/Documents/GitHubRepositories/CodingForACauseSocialHackathon/public/pricig.html";}
+        function() { document.location.href = "pricing.html";}
     );
 });
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
         function() { $('#elem6').css('background-color', 'black'); }
     );
     $('#elem6').click(
-        function() { document.location.href = "file:///C:/Users/Tim/Documents/GitHubRepositories/CodingForACauseSocialHackathon/public/sponsors.html";}
+        function() { document.location.href = "sponsors.html";}
     );
 });
 
@@ -64,7 +64,7 @@ $(document).ready(function() {
         function() { $('#elem7').css('background-color', 'black'); }
     );
     $('#elem7').click(
-        function() { document.location.href = "file:///C:/Users/Tim/Documents/GitHubRepositories/CodingForACauseSocialHackathon/public/aboutus.html";}
+        function() { document.location.href = "aboutus.html";}
     );
 });
 
@@ -74,6 +74,6 @@ $(document).ready(function() {
         function() { $('#elem8').css('background-color', 'black'); }
     );
     $('#elem8').click(
-        function() { document.location.href = "file:///C:/Users/Tim/Documents/GitHubRepositories/CodingForACauseSocialHackathon/public/support.html";}
+        function() { document.location.href = "support.html";}
     );
 });
