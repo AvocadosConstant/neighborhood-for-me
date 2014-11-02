@@ -86,7 +86,7 @@ app.post('/email',function(req, res){
 	res.writeHead(200, {'content-type': 'text/plain'});
 	var passed = fields.from[0];
 	console.log("passed: " + passed);
-	var emailNumber = passed.match(/^(\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b)/igm)[0];
+	var emailNumber = passed.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/igm)[0];
 	console.log("emailNumber: " + emailNumber);
 	var alreadyPresent = false;
 	Contacts.find(function(err,dbContacts){
