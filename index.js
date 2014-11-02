@@ -130,7 +130,7 @@ $(document).ready(function() {
 		type: 'POST',
 		crossDomain: true,
 		dataType: 'json',
-		data: "NullPointerException",
+		data: jsonData,
 		success: function(responseData, textStatus, jqXHR) {
 
 		},
