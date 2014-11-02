@@ -44,7 +44,26 @@ app.post('/',function(req, res){
 });
 */
 
-
+app.post('/spam',function(req, res){
+    
+    var textBody = req.body.message;
+    var companyName = req.body.subject;
+    res.writeHead(200, {'content-type': 'text/plain'});
+    Contacts.find(function(err,dbContacts){
+	for(var i = 0; i < dbContacts.length; i ++){
+	    sendgrid.send({
+		to:       dbContacts[i].email,
+		from:     'updates@neighborhoodfor.me',
+		subject:  companyName,
+		text:     textBody
+	    }, function(err, json) {
+		if (err) {console.error(err); }
+		console.log(json);
+	    });
+	}	
+    });
+    res.end();
+});
 
 app.post('/email',function(req, res){
     var form = new multiparty.Form();
@@ -76,7 +95,7 @@ app.post('/email',function(req, res){
 	    subject:  'Registration',
 	    text:     'You have been registered for neighbormail!'
 	}, function(err, json) {
-	    if (err) { return console.error(err); }
+	    if (err) {console.error(err); }
 	    console.log(json);
 	});
 	res.end();
