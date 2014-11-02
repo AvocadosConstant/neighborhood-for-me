@@ -105,6 +105,7 @@ textarea {
     width: 64.5%;
     height: 100%;
     font-size: 30px;
+    resize: none;
 }
 
 #send {
@@ -171,4 +172,22 @@ a {
 
 #nmail {
 
+}
+
+#signupform {
+    position: relative;
+    left: 0;
+    font-size: 20px;
+    padding:5%;
+    width:40%;
+    margin: 0;
+}
+
+#loginform {
+    position: relative;
+    left: 50;
+    font-size: 20px;
+    padding:5%;
+    width:40%;
+    margin: 0;
 }
