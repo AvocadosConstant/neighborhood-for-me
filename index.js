@@ -84,15 +84,26 @@ $(document).ready(function() {
     $('#send').click(
         function() { 
 	    console.log("The button has been clicked");
-	    var messageToSend = $('#msgtext').value;
-	    $.post("http://localhost:3000/spam",
-		   {
-		       "message":messageToSend,
-		       "subject":"NullPointerException"
-		   },
-		   function(data,status){
-		       console.log("This is the status: " + status);
-		   });
+	    var messageToSend = $('#msgtext').val();
+	    console.log(messageToSend);
+	    var jsonData = {
+		"message":messageToSend,
+		"subject":"NullPointerException"
+	    };
+	    console.log(JSON.stringify(jsonData));
+	    $.ajax({
+		url: 'http://104.236.58.7:3000/spam',
+		type: 'POST',
+		crossDomain: true,
+		dataType: 'json',
+		data: jsonData,
+		success: function(responseData, textStatus, jqXHR) {
+
+		},
+		error: function (responseData, textStatus, errorThrown) {
+
+		}
+	    });
 	}
     );
 });

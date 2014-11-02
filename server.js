@@ -25,6 +25,7 @@ var contactSchema = new mongoose.Schema({
 var Contacts = mongoose.model('Contacts',contactSchema);
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended:false}));
 
 app.get('/', function(req, res){
     res.send('Hello World!');
@@ -45,9 +46,21 @@ app.post('/',function(req, res){
 */
 
 app.post('/spam',function(req, res){
-    
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://104.236.58.7');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    console.log("Req: " + req);
+    console.log("Res: " + res);
+    console.log("Req.body: " + req.body);
+    console.log("Res.body: " + res.body);
+    console.log("Req.body.jsonstring: " + JSON.stringify(req.body));
+    //console.log("Req.jsonstring: " + JSON.stringify(req));
     var textBody = req.body.message;
+    console.log("This is the  textbody: " + textBody);
     var companyName = req.body.subject;
+    console.log("This is the  companyname: " + companyName);
     res.writeHead(200, {'content-type': 'text/plain'});
     Contacts.find(function(err,dbContacts){
 	for(var i = 0; i < dbContacts.length; i ++){
@@ -137,7 +150,6 @@ app.post('/email',function(req, res){
 var server = app.listen(3000, function(){
     var host = server.address().address;
     var port = server.address().port;
-    console.log("Example app listening at http:blahblah", host,port);
     Contacts.find(function(err,dbContacts){
         if(err) return console.log(err);
         console.log(dbContacts);
