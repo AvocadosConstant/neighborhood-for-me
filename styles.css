@@ -35,7 +35,7 @@ body {
     top:0; bottom:0; left:10%;
     width:20%;
     height: 100%;
-    background: #F5F5DC;
+    background-image: url('http://api.thumbr.it/whitenoise-361x370.png?background=#F5F5DCff&noise=626262&density=50&opacity=80');
     color: white;
 }
 
