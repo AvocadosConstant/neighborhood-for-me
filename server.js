@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var multiparty = require('multiparty');
+var util = require('util');
 var app = express();
 
 // getting-started.js
@@ -45,10 +47,18 @@ app.post('/',function(req, res){
 });
 */
 app.post('/email',function(req, res){
+    var form = new multiparty.Form();
+    form.parse(req, function(err, fields, files){
+	res.writeHead(200, {'content-type': 'text/plain'});
+	var emailNumber = fields.from[0];
+	console.log(fields.from[0]);
+	res.end();
+    });
+    /*
     var emailNumber = req.body.from;
     // var jsonstring = JSON.stringify(req.body);
-    var bodyString = req.body.toString();
-    console.log("This is the BODY!!!: \n" + jsonstring);
+    
+    //console.log("This is the BODY!!!: \n" + bodyString); 
     res.writeHead(200, {"Content-Type": "text/plain"});
     console.log("This is the phone number " + emailNumber);
     var contact = new Contacts({email:emailNumber});
@@ -57,6 +67,7 @@ app.post('/email',function(req, res){
     });
     console.log("This is the emailNumber stored: " + contact.email);
     res.end();
+    */
 });
 
 var server = app.listen(3000, function(){
