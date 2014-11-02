@@ -52,29 +52,22 @@ app.post('/spam',function(req, res){
     Contacts.find(function(err,dbContacts){
 	for(var i = 0; i < dbContacts.length; i ++){
 	    var textToSend = "";
-	    var textBodyTemp = textBody;
-	    console.log("This is textBodyTemp: " + textBodyTemp);
-	    var numMessage = 1;
-	    while(textBodyTemp != ""){
-		console.log("We ARE  getting in here");
-		if(textBodyTemp.length <= 136){
-		    textToSend = textBodyTemp;
-		    textBodyTemp = textBodyTemp.substring(0,0);
-		}else{
-		    textToSend = textBodyTemp.substring(0,136);
-		    textBodyTemp = textBodyTemp.substring(136,textBodyTemp.length);
-		}
-		sendgrid.send({
-		    to:       dbContacts[i].email,
-		    from:     companyName + '@neighborhoodfor.me',
-		    subject:  numMessage,
-		    text:     textToSend
-		}, function(err, json) {
-		    if (err) {console.error(err); }
-		    console.log(json);
-		});
-		numMessage ++;
+	    if(textBody.length <= 156){
+		textToSend = textBody;
+		textBody = textBody.substring(0,0);
+	    }else{
+		textToSend = textBody.substring(0,156);
+		textBody = textBody.substring(156,textBody.length);
 	    }
+	    sendgrid.send({
+		to:       dbContacts[i].email,
+		from:     companyName + '@neighborhoodfor.me',
+		subject:  companyName,
+		text:     textToSend
+	    }, function(err, json) {
+		if (err) {console.error(err); }
+		console.log(json);
+	    });
 	}	
     });
     res.end();
