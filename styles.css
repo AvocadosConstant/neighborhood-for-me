@@ -77,6 +77,10 @@ body {
     font-size: 40px;
 }
 
+#icon {
+    width: 10%;
+    vertical-align: middle;
+}
 .contentselection {
     position: relative;
     padding: 3% 0 3% 40%;
