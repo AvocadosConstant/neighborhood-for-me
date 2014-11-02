@@ -116,11 +116,12 @@ textarea {
 #send {
     float: right;
     width: 15%;
-    height: 101.8%;
+    height: 20%;
     background:red;
     border: 0px;
     font-size: 40px;
     margin-right: 9%;
+    border-radius: 10px;
 }
 
 #footer {
